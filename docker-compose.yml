@@ -8,3 +8,6 @@ services:
       - "8080:3000"
     env_file:
       - .env
+    volumes:
+      - ./app/src:/usr/src/app/src
+      - ./app/public:/usr/src/app/public
