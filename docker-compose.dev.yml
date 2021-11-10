@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  server_dev:
+    restart: unless-stopped
+    build: ./app
+    ports:
+      - "8085:3000"
+    env_file:
+      - .env
+    volumes:
+      - ./app/src:/usr/src/app/src
+      - ./app/public:/usr/src/app/public
