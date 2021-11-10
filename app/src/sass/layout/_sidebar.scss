@@ -1,0 +1,11 @@
+.App-sidebar {
+    height: 100%;
+    width: $sidebar-width;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #EDEDED;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
