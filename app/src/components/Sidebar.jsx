@@ -1,4 +1,4 @@
-import { faAcorn, faConciergeBell } from '@fortawesome/pro-duotone-svg-icons'
+import { faAcorn, faConciergeBell, faFileAlt } from '@fortawesome/pro-duotone-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { NavLink } from 'react-router-dom';
 import Brand from './Brand';
@@ -11,6 +11,7 @@ function Sidebar() {
         <Menu>
           <MenuItem icon={faAcorn} title='Dashboard' to="/" />
           <MenuItem icon={faConciergeBell} title='Services' to="/services" />
+          <MenuItem icon={faFileAlt} title='Documentations' to="/docs" />
         </Menu>
     </aside>
   )
