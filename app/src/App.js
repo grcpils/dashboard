@@ -1,4 +1,5 @@
 import './sass/App.scss';
+import { Outlet } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
       </header>
 
       <section className="App-content">
+        <Outlet />
       </section>
 
     </div>

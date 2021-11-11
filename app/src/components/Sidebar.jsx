@@ -1,39 +1,49 @@
-import { faCog, faAcorn, faConciergeBell } from '@fortawesome/pro-duotone-svg-icons'
+import { faAcorn, faConciergeBell } from '@fortawesome/pro-duotone-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { NavLink } from 'react-router-dom';
 import Brand from './Brand';
 
 function Sidebar() {
-    return (
-        <aside className="App-sidebar">
-            <Brand />
-            <UserProfil />
-            <ul className="App-sidebar__list">
-                <MenuItem icon={faAcorn} title='Dashboard' />
-                <MenuItem icon={faConciergeBell} title='Services' />
-                <MenuItem icon={faCog} title='Settings' />
-            </ul>
-        </aside>
-    )
+  return (
+    <aside className="App-sidebar">
+      <Brand />
+      <UserProfil />
+        <Menu>
+          <MenuItem icon={faAcorn} title='Dashboard' to="/" />
+          <MenuItem icon={faConciergeBell} title='Services' to="/services" />
+        </Menu>
+    </aside>
+  )
 }
 
-function UserProfil() {
-    return (
-        <div className="App-sidebar__profil">
-            <img src="https://picsum.photos/250" alt="avatar" />
-            <span>grcpils</span>
-        </div>
-    )
+function Menu(props) {
+  return (
+    <nav>
+      <ul className="App-sidebar__list">
+        {props.children}
+      </ul>
+    </nav>
+  )
 }
 
 function MenuItem(props) {
   return (
     <li className="App-sidebar__list__item">
-      <FontAwesomeIcon icon={props.icon} />
-      <a href="#index">
+      <NavLink to={props.to} className="App-sidebar__list__item__link stretched-link" activeClassName="active">
+        <div className="icon"><FontAwesomeIcon icon={props.icon} /></div>
         {props.title}
-      </a>
+      </NavLink>
     </li>
-    )
-  }
+  )
+}
+
+function UserProfil() {
+  return (
+      <div className="App-sidebar__profil">
+          <img src="https://picsum.photos/250" alt="avatar" />
+          <span>username</span>
+      </div>
+  )
+}
 
 export default Sidebar;
