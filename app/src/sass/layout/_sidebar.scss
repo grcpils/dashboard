@@ -2,10 +2,73 @@
     height: 100%;
     width: $sidebar-width;
     position: fixed;
-    z-index: 1;
+    z-index: 2;
     top: 0;
     left: 0;
-    background-color: #EDEDED;
+    background-color: $color-white;
     overflow-x: hidden;
-    padding-top: 20px;
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+
+    &__profil {
+        margin: 0;
+        padding-bottom: 15px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        border-bottom: 1px solid $color-separator;
+        border-top: 1px solid $color-separator;
+        padding: 10px;
+        img {
+            border-radius: 50%;
+            height: 50px;
+        }
+        span {
+            font-family: 'Fira Code', 'Courier New', Courier, monospace;
+            margin-left: 10px;
+            font-size: 14px;
+            font-weight: 700;
+        }
+    }
+
+    &__list {
+        list-style: none;
+        margin: 0;
+        padding: 10px;
+        &__item {
+            padding: 7px 2px;
+            margin-top: 5px;
+            background-color: $color-white;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: .25s;
+            display: flex;
+            align-items: center;
+            svg {
+                height: 20px;
+                width: 20px;
+                border-radius: 50%;
+                padding: 5px;
+                margin: 0 15px 0 5px;
+                transition: .25s;
+                color: rgba($color-black, .7);
+            }
+            a {
+                font-weight: 800;
+                text-decoration: none;
+                color: #4b4b4b;
+                transition: .20s;
+            }
+            &:hover, .active {
+                background-color: rgba($color-black, .04);
+                svg {
+                    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+                    background-color: $color-white;
+                    color: $color-primary
+                }
+                a {
+                    // color: $color-white;
+                }
+            }
+        }
+    }
 }

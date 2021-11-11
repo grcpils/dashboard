@@ -1,0 +1,13 @@
+.App-brand {
+    font-family: 'Fira Sans Extra Condensed', sans-serif;
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:  $header-height + ($header-padding * 2);
+    color: $color-secondary;
+    &__prefix {
+        color: $color-primary;
+        font-style: italic;
+    }
+}

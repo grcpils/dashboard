@@ -5,7 +5,8 @@
     z-index: 1;
     top: 0;
     left: $sidebar-width;
-    background-color: #EDEDED;
+    background-color: $color-white;
     overflow-x: hidden;
     padding: $header-padding;
+    border-bottom: 1px solid #f3f3f3;
 }
