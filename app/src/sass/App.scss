@@ -4,6 +4,11 @@
 // Global
 @import './variables';
 
+// Utils
+@import './utils/reset';
+@import './utils/normalize';
+@import './utils/streched-link';
+
 // Layout
 @import './layout/sidebar';
 @import './layout/header';
@@ -11,6 +16,7 @@
 
 // Components
 @import './components/brand';
+@import './components/page-title';
 
 .text-center {
     display: flex;
