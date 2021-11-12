@@ -1,5 +1,9 @@
 .App-content {
-    margin-left: $sidebar-width;
-    margin-top: $header-height + ($header-padding * 2);
-    padding: 10px;
+  margin-left: $sidebar-width;
+  margin-top: $header-height + ($header-padding * 2);
+  padding: 10px;
+  
+  @media (max-width: 576px) {
+    margin-left: 0;
+  }
 }

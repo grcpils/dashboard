@@ -1,82 +1,133 @@
 .App-sidebar {
-    height: 100%;
-    width: $sidebar-width;
-    position: fixed;
-    z-index: 2;
-    top: 0;
-    left: 0;
-    background-color: $color-white;
-    overflow-x: hidden;
-    box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
-
-    &__profil {
-        margin: 0;
-        padding-bottom: 15px;
+  height: 100%;
+  width: $sidebar-width;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  background-color: $color-white;
+  overflow-x: hidden;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+  
+  &__profil {
+    margin: 0;
+    padding-bottom: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 1px solid $color-separator;
+    border-top: 1px solid $color-separator;
+    padding: 10px;
+    img {
+      border-radius: 50%;
+      height: 50px;
+    }
+    span {
+      font-family: 'Fira Code', 'Courier New', Courier, monospace;
+      margin-left: 10px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+  }
+  
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 10px;
+    &__item {
+      &__link {
+        position: relative;
+        padding: 7px 2px;
+        margin-top: 5px;
+        background-color: $color-white;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: .25s;
         display: flex;
-        flex-direction: row;
         align-items: center;
-        border-bottom: 1px solid $color-separator;
-        border-top: 1px solid $color-separator;
-        padding: 10px;
-        img {
-            border-radius: 50%;
-            height: 50px;
+        .icon {
+          margin: 0 15px 0 5px;
+          padding: 5px;
+          border-radius: 50%;
+          transition: .25s;
+          height: 25px;
+          width: 25px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          svg {
+            height: 22px;
+            color: rgba($color-black, .7);
+            transition: .25s;
+          }
         }
-        span {
-            font-family: 'Fira Code', 'Courier New', Courier, monospace;
-            margin-left: 10px;
-            font-size: 14px;
-            font-weight: 700;
+        &:hover, &.active {
+          background-color: rgba($color-black, .04);
+          div {
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+            background-color: $color-white;
+          }
         }
+        &.active {
+          svg {
+            color: $color-primary
+          }
+        }
+      }
+      a {
+        font-weight: 800;
+        text-decoration: none;
+        color: #4b4b4b;
+        transition: .20s;
+      }
     }
+  }
 
-    &__list {
-        list-style: none;
-        margin: 0;
-        padding: 10px;
-        &__item {
-            &__link {
-                position: relative;
-                padding: 7px 2px;
-                margin-top: 5px;
-                background-color: $color-white;
-                border-radius: 6px;
-                cursor: pointer;
-                transition: .25s;
-                display: flex;
-                align-items: center;
-                .icon {
-                    margin: 0 15px 0 5px;
-                    padding: 5px;
-                    border-radius: 50%;
-                    transition: .25s;
-                    height: 25px;
-                    width: 25px;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    svg {
-                        height: 22px;
-                        color: rgba($color-black, .7);
-                    }
-                }
-                &:hover, &.active {
-                    background-color: rgba($color-black, .04);
-                    div {
-                        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-                        background-color: $color-white;
-                        svg {
-                            // color: $color-primary
-                        }
-                    }
-                }
-            }
-            a {
-                font-weight: 800;
-                text-decoration: none;
-                color: #4b4b4b;
-                transition: .20s;
-            }
-        }
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &__sidebar-toggle, &__sidebar-toggle-collapsed {
+      font-size: 25px;
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: .25s;
+      color: $color-black;
+      border: none;
+      background-color: $color-white;
+      margin: 0 10px;
+      display: none;      
+      &:hover {
+        background-color: $color-separator;
+      }
     }
+    &__sidebar-toggle-collapsed {
+      display: none;
+    }
+  }
+  transition: .30s;
+
+  @media (max-width: 576px) {
+    &__top {
+      justify-content: start;
+      &__sidebar-toggle {
+        display: flex;
+      } 
+    }
+    &.collapsed {
+      left: -$sidebar-width;
+      .App-sidebar__top {
+        &__sidebar-toggle-collapsed {
+          display: flex;
+          position: fixed;
+          margin-left: 280px;
+        }
+      }
+    }
+  }
 }

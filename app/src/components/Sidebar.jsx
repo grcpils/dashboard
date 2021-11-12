@@ -1,12 +1,19 @@
-import { faAcorn, faConciergeBell, faFileAlt } from '@fortawesome/pro-duotone-svg-icons'
+import { faAcorn, faConciergeBell, faFileAlt, faBars } from '@fortawesome/pro-duotone-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import Brand from './Brand';
 
-function Sidebar() {
+export default function Sidebar() {
+  const [isCollapsed, setIsCollapsed] = useState(true);
+
+  const ToggleCollapsed = () => {
+    setIsCollapsed(!isCollapsed);
+  }
+
   return (
-    <aside className="App-sidebar">
-      <Brand />
+    <aside className={(isCollapsed) ? "App-sidebar" : "App-sidebar collapsed"}>
+      <SidebarTop onChangeCollapsedState={() => {ToggleCollapsed()}} />
       <UserProfil />
         <Menu>
           <MenuItem icon={faAcorn} title='Dashboard' to="/" />
@@ -14,6 +21,20 @@ function Sidebar() {
           <MenuItem icon={faFileAlt} title='Documentations' to="/docs" />
         </Menu>
     </aside>
+  )
+}
+
+function SidebarTop(props) {
+  return (
+    <div className="App-sidebar__top">
+      <button onClick={props.onChangeCollapsedState} className="App-sidebar__top__sidebar-toggle">
+        <FontAwesomeIcon icon={faBars} />
+      </button>
+      <button onClick={props.onChangeCollapsedState} className="App-sidebar__top__sidebar-toggle-collapsed">
+        <FontAwesomeIcon icon={faBars} />
+      </button>
+      <Brand />
+    </div>
   )
 }
 
@@ -46,5 +67,3 @@ function UserProfil() {
       </div>
   )
 }
-
-export default Sidebar;
