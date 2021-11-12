@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import Brand from './Brand';
 
 export default function Sidebar() {
-  const [isCollapsed, setIsCollapsed] = useState(true);
+  const [isCollapsed, setIsCollapsed] = useState(false);
 
   const ToggleCollapsed = () => {
     setIsCollapsed(!isCollapsed);
