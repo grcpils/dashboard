@@ -1,0 +1,69 @@
+$button-colors: (
+'primary': $color-primary,
+'secondary': $color-secondary,
+'accent': $color-accent,
+'success': $color-success,
+'danger': $color-danger,
+'lightgray': $color-separator,
+'github': $color-github,
+'google': $color-google,
+'steam': $color-steam,
+'office': $color-office,
+'reddit': $color-reddit
+);
+
+.btn {
+  border: none;
+  border-radius: 6px;
+  padding: 12.5px;
+  color: $color-light-grey;
+  cursor: pointer;
+  margin-bottom: 10px;
+  text-align: center;
+  text-decoration: none;
+  box-sizing: border-box;
+
+  &-brand {
+    display: block;
+    width: 100%;
+    svg {
+      margin-right: 10px;
+    }
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+  &.btn-text-bold {
+    font-weight: bold;
+  }
+  &.btn-inline {
+    display: inline;
+  }
+  &.btn-block {
+    width: 100%;
+    display: block;
+  }
+}
+
+@function set-text-color($color) {
+  @if (lightness($color) > 65) {
+    @return $color-black;
+  }
+  @else {
+    @return $color-white;
+  }
+}
+
+@each $key, $value in $button-colors {
+  .btn-#{$key} {
+    background-color: $value;
+    color: set-text-color($value);
+    &:hover {
+      background-color: darken($color: $value, $amount: 5%);
+    }
+    &:active {
+      box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+    }
+  }
+}
