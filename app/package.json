@@ -12,10 +12,13 @@
     "web-vitals": "^1.1.2",
     "node-sass": "^6.0.1",
     "react-router-dom": "^6.0.2",
+    "react-hook-form": "^7.20.4",
     "@fortawesome/fontawesome-svg-core": "^1.3.0-beta2",
     "@fortawesome/react-fontawesome": "^0.1.16",
     "@fortawesome/free-brands-svg-icons": "^5.0.0",
-    "@fortawesome/free-regular-svg-icons": "^5.0.0"
+    "@fortawesome/free-regular-svg-icons": "^5.0.0",
+    "firebase": "^9.5.0",
+    "bootstrap": "^5.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code&family=Fira+Sans+Extra+Condensed:ital,wght@0,700;1,700&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,700;1,300;1,700&display=swap');
 
-
 // Global
 @import './variables';
+@import './bootstrap_var';
+@import "../../node_modules/bootstrap/scss/bootstrap";
 
 // Utils
 @import './utils/reset';

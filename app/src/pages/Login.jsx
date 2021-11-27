@@ -32,15 +32,19 @@ function LoginForm() {
     return (
         <form className="App-login__form">
           <div>
-            <div className="input-group-icon">
-                <FontAwesomeIcon icon={faUser} className="input-group-icon__icon" />
-                <input className="input-group-icon__input" placeholder="Username" />
-            </div>
+          <div className="input-group mb-2">
+            <span className="input-group-text" id="basic-addon1">
+              <FontAwesomeIcon icon={faUser} />
+            </span>
+            <input type="text" className="form-control" placeholder="Username" aria-label="Username" />
+          </div>
 
-            <div className="input-group-icon">
-                <FontAwesomeIcon icon={faLock} className="input-group-icon__icon" />
-                <input className="input-group-icon__input" placeholder="Password" type="password" />
-            </div>
+          <div className="input-group mb-2">
+            <span className="input-group-text" id="basic-addon1">
+              <FontAwesomeIcon icon={faLock} />
+            </span>
+            <input type="password" className="form-control" placeholder="Password" aria-label="Password" />
+          </div>
             </div>
             <LoginControls />
         </form>
@@ -49,10 +53,10 @@ function LoginForm() {
 
 function LoginControls() {
     return (
-        <div className="App-login__controls">
-            <button className="btn btn-accent btn-text-bold btn-block">Connect</button>
-            <NavLink to="/register" className="btn btn-lightgray btn-block">No account ?</NavLink>
-        </div>
+      <div className="d-grid gap-2">
+          <input type="submit" value="Connect" className="btn btn-primary" />
+          <NavLink to="/register" className="btn btn-lightgray btn-block">No account ?</NavLink>
+      </div>
     )
 }
 

@@ -4,7 +4,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import BrandedButton from '../components/BrandedButton';
 import Brand from './../components/Brand';
 import { NavLink } from 'react-router-dom';
+import { useForm } from "react-hook-form";
 import { LoginBox, LoginBoxTitle, LoginSeparator } from './../components/LoginBox';
+import { registerWithEmailAndPassword } from './../helpers/firebase';
 
 export default function Login() {
     return (
@@ -29,27 +31,45 @@ function RegisterContent() {
 }
 
 function RegisterForm() {
+  const { register, handleSubmit } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data);
+    // Todo: Data validation and test password confirmation
+    registerWithEmailAndPassword(data.username, data.email, data.password);
+  };
+
   return (
-      <form className="App-login__form">
+      <form onSubmit={handleSubmit(onSubmit)} className="App-login__form needs-validation">
         <div>
-          <div className="input-group-icon">
-              <FontAwesomeIcon icon={faUser} className="input-group-icon__icon" />
-              <input className="input-group-icon__input" placeholder="Username" />
+          <div className="input-group mb-2">
+            <span className="input-group-text" id="basic-addon1">
+              <FontAwesomeIcon icon={faUser} />
+            </span>
+            <input {...register("username")} type="text" className="form-control" placeholder="Username" aria-label="Username" />
           </div>
 
-          <div className="input-group-icon">
-              <FontAwesomeIcon icon={faEnvelope} className="input-group-icon__icon" />
-              <input className="input-group-icon__input" placeholder="Email" />
+          <div className="input-group mb-2">
+            <span className="input-group-text" id="basic-addon1">
+              <FontAwesomeIcon icon={faEnvelope} />
+            </span>
+            <input {...register("email")} type="email" className="form-control" placeholder="Email" aria-label="Email" />
           </div>
 
-          <div className="input-group-icon">
-              <FontAwesomeIcon icon={faLock} className="input-group-icon__icon" />
-              <input className="input-group-icon__input" placeholder="Password" type="password" />
+          <div className="input-group mb-2">
+            <span className="input-group-text" id="basic-addon1">
+              <FontAwesomeIcon icon={faLock} />
+            </span>
+            <input {...register("password")} type="password" className="form-control" placeholder="Password" aria-label="Password" />
           </div>
-          <div className="input-group-icon">
-              <FontAwesomeIcon icon={faLock} className="input-group-icon__icon" />
-              <input className="input-group-icon__input" placeholder="Confirm password" type="password" />
+
+          <div className="input-group mb-2">
+            <span className="input-group-text" id="basic-addon1">
+              <FontAwesomeIcon icon={faLock} />
+            </span>
+            <input {...register("passwordBis")} type="password" className="form-control" placeholder="Confirm password" aria-label="Confirm password" />
           </div>
+
           </div>
           <RegisterControls />
       </form>
@@ -58,8 +78,8 @@ function RegisterForm() {
 
 function RegisterControls() {
   return (
-      <div className="App-login__controls">
-          <button className="btn btn-accent btn-text-bold btn-block">Register</button>
+      <div className="d-grid gap-2">
+          <input type="submit" value="Register" className="btn btn-primary" />
           <NavLink to="/login" className="btn btn-lightgray btn-block">Already registered ?</NavLink>
       </div>
   )
