@@ -27,8 +27,8 @@ app.use('/steam', steamRoute);
 app.use('/exchange', exchangeRoute);
 app.use('/rss', rssRoute);
 
-app.listen(3546, "0.0.0.0", () =>
-    console.log(`API listening on port 3546!`),
+app.listen(8080, "0.0.0.0", () =>
+    console.log(`API listening on port 8080!`),
 );
 
 module.exports = app;

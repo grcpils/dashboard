@@ -6,7 +6,7 @@ COPY package.json .
 
 RUN npm install
 
-EXPOSE 3546
+EXPOSE 8080
 
 COPY . .
 
