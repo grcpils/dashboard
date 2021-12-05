@@ -2,7 +2,7 @@ import { auth, db } from "./firebase";
 import { collection, doc, setDoc, getDoc } from 'firebase/firestore/lite';
 import { updateProfile, createUserWithEmailAndPassword,
     signInWithEmailAndPassword, sendPasswordResetEmail, signOut, signInWithPopup ,
-    GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
+    GithubAuthProvider, GoogleAuthProvider, sendEmailVerification } from "firebase/auth";
 
 
 const loginInWithEmailAndPassword = async (email, password) => {
@@ -36,6 +36,7 @@ const loginWithGithub = async () => {
         uid: user.uid,
         username: result._tokenResponse.screenName,
         authProvider: 'github',
+        layouts: {lg: []},
         email: user.email,
       });
     }
@@ -74,6 +75,7 @@ const loginWithGoogle = async () => {
         uid: user.uid,
         username: result._tokenResponse.screenName,
         authProvider: 'google',
+        layouts: {lg: []},
         email: user.email,
       });
     }
@@ -111,8 +113,10 @@ const registerWithEmailAndPassword = async (username, email, password) => {
       uid: user.uid,
       username,
       authProvider: "local",
+      layouts: {lg: []},
       email,
     });
+    sendEmailVerification(auth.currentUser);
     return "ok";
   })
   .catch((error) => {
