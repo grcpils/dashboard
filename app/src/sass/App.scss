@@ -21,6 +21,16 @@
 @import './components/button';
 @import './components/brand';
 @import './components/page-title';
+@import './components/service';
+@import './components/placeholder';
+@import './components/widget';
+@import './components/roundIconButton';
+@import './components/select-react';
+
+// Widgets
+@import './widgets/weather';
+@import './widgets/steam';
+@import './widgets/rss';
 
 .text-center {
     display: flex;

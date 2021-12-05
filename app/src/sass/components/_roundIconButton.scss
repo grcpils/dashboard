@@ -1,0 +1,22 @@
+.btn-rounded-icon {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: $color-separator;
+    svg {
+      width: 20px;
+      height: 20px;
+      padding: 7px;
+      @media (max-width: 576px) {
+        width: 25px;
+        height: 25px;
+        padding: 10px;
+      }
+    }
+    &:hover {
+      background-color: rgba($color-black, .08);
+    }
+  }

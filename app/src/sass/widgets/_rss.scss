@@ -1,0 +1,56 @@
+.widget-rss {
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    font-size: 20px;
+    padding: 10px;
+    color: $color-white;
+    font-weight: bold;
+    border-bottom: 1px solid lighten($color: $color-rss, $amount: 10);
+    display: flex;
+    align-items: center;
+    svg {
+      margin-right: 10px;
+    }
+  }
+  &__content {
+    flex-grow: 1;
+    height: 100%;
+  }
+
+  &__item {
+    padding: 5px 10px;
+    .item-container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 5px 0;
+      .data {
+        font-family: 'Fira Code', monospace;
+        width: 100%;
+        &__title {
+          font-family: "Fira Sans", sans-serif;
+          display: block;
+          font-size: 16px;
+          line-height: 16px;
+          font-weight: bold;
+        }
+        &__content {
+          display: block;
+          font-size: 10px;
+        }
+        &__para {
+          line-height: 15px;
+        }
+      }
+    }
+  }
+
+  .list-group-item {
+    background-color: $color-rss;
+    color: $color-white;
+    border-color: rgba($color-white, 0.125)
+  }
+
+}

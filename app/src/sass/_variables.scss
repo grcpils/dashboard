@@ -5,7 +5,7 @@ $sidebar-collapsed-width: 62px;
 $sidebar-padding: 10px;
 
 // Header
-$header-height: 40px;
+$header-height: 60px;
 $header-padding: 10px;
 
 // Colors
@@ -14,6 +14,7 @@ $color-black: #000;
 
 $color-primary: #7158e2;
 $color-secondary: #ff9f1a;
+$color-icon: #474787;
 
 $primary: $color-primary;
 $secondary: $color-secondary;
@@ -25,9 +26,27 @@ $color-danger: #ff3838;
 $color-success: #3ae374;
 
 $color-separator: #f3f3f3;
+$color-background: #e9ecef;
 
 $color-github: #333333;
 $color-google: #DB4437;
 $color-steam: #171a21;
 $color-office: #DC3E15;
 $color-reddit: #FF5700;
+$color-epitech: #0072bc;
+$color-rss: #ee802f;
+$color-weather: #44b0fa;
+
+// components
+
+$box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+
+@function set-color($color) {
+    @if (lightness($color) > 40) {
+      @return $color-black;
+    }
+    @else {
+      @return $color-white;
+    }
+}

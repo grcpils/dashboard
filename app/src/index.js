@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from './pages/Login';
 import Register from './pages/Register';
+import ResetPassword from './pages/ResetPassword';
 import Dashboard from './pages/Dashboard';
 import Services from './pages/Services';
 import Documentations from './pages/Documentations';
@@ -21,6 +22,7 @@ ReactDOM.render(
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/reset" element={<ResetPassword />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,

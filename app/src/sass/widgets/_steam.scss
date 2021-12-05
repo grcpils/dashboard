@@ -1,0 +1,83 @@
+.widget-steam-friends {
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    font-size: 20px;
+    padding: 10px;
+    border-bottom: 1px solid lighten($color: $color-steam, $amount: 10);
+    display: flex;
+    align-items: center;
+    svg {
+      margin-right: 5px;
+    }
+  }
+  &__content {
+    flex-grow: 1;
+  }
+
+  &__item {
+    padding: 5px 10px;
+    .item-container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      .avatar {
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+      }
+      .data {
+        font-family: 'Fira Code', monospace;
+        width: 80%;
+        margin-left: 10px;
+        &__pseudo {
+          line-height: 20px;
+        }
+        &__status {
+          font-size: 12px;
+        }
+        &__playerscount {
+          font-size: 35px;
+        }
+      }
+    }
+  }
+
+  .list-group-item {
+    background-color: $color-steam;
+    color: $color-white;
+    border-color: rgba($color-white, 0.125)
+  }
+}
+
+.widget-steam-game {
+  &__content {
+    padding: 5px;
+  }
+  .gamename {
+    font-family: "Fira Sans Extra Condensed", sans-serif;
+    font-size: 18px;
+    text-align: center;
+  }
+  .data {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 90px;
+    &__playerscount {
+      font-family: "Fira Code", monospace;
+      font-weight: bold;
+      font-size: 40px;
+    }
+    &__playerstooltip {
+      font-size: 12px;
+      margin-top: -15px;
+      font-style: italic;
+    }
+    .playerscount-placeholder {
+      height: 40px;
+    }
+  }
+}

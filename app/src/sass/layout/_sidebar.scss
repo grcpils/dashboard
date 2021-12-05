@@ -8,25 +8,47 @@
   background-color: $color-white;
   overflow-x: hidden;
   box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
-  
+  @media (max-width: 576px) {
+    width: 100vw;
+  }
+
   &__profil {
     margin: 0;
-    padding-bottom: 15px;
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
     border-bottom: 1px solid $color-separator;
     border-top: 1px solid $color-separator;
     padding: 10px;
-    img {
-      border-radius: 50%;
-      height: 50px;
-    }
-    span {
-      font-family: 'Fira Code', 'Courier New', Courier, monospace;
-      margin-left: 10px;
-      font-size: 14px;
-      font-weight: 700;
+    padding-right: 20px;
+    &__data {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      img {
+        border-radius: 50%;
+        height: 50px;
+      }
+      .data {
+        display: flex;
+        flex-direction: column;
+        font-family: 'Fira Sans', 'Courier New', Courier, monospace;
+        margin-left: 5px;
+        font-size: 14px;
+        font-weight: 700;
+        width: $sidebar-width - 110px;
+        &__username {
+          display: inline;
+          font-size: 14px;
+          font-weight: 900;
+        }
+        &__email {
+          display: inline;
+          font-size: 10px;
+          font-weight: 300;
+        }
+      }
     }
   }
   
@@ -47,7 +69,7 @@
         align-items: center;
         .icon {
           margin: 0 15px 0 5px;
-          padding: 5px;
+          padding: 18px;
           border-radius: 50%;
           transition: .25s;
           height: 25px;
@@ -64,7 +86,7 @@
         &:hover, &.active {
           background-color: rgba($color-black, .04);
           div {
-            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+            // box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
             background-color: $color-white;
           }
         }
@@ -120,14 +142,18 @@
       } 
     }
     &.collapsed {
-      left: -$sidebar-width;
+      left: -100vw;
       .App-sidebar__top {
         &__sidebar-toggle-collapsed {
           display: flex;
           position: fixed;
-          margin-left: 280px;
+          margin-left: calc(100vw + 10px);
         }
       }
     }
   }
+}
+
+.btn-signout {
+  right: 10px;
 }

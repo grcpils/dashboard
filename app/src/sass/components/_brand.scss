@@ -4,7 +4,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height:  $header-height + ($header-padding * 2);
+    height:  $header-height - 1;
     color: $color-secondary;
     &__prefix {
         color: $color-primary;

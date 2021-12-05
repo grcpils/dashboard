@@ -17,11 +17,34 @@ $theme-colors: (
     'google': $color-google,
     'steam': $color-steam,
     'office': $color-office,
-    'reddit': $color-reddit
+    'reddit': $color-reddit,
+    'epitech': $color-epitech,
+    'light': $color-white,
+    'weather': $color-weather,
+    'rss': $color-rss,
 );
 
 $input-group-addon-bg: $color-separator;
 $input-group-addon-border-color: $color-separator;
 $input-border-color: $color-separator;
+$input-disabled-bg: $color-separator;
 $input-border-width: 2px;
 $input-border-radius: 6px;
+
+
+$form-feedback-font-size: 12px;
+
+$alert-border-width: 0;
+$alert-margin-bottom: 0;
+$alert-padding-y: 8px;
+$alert-padding-x: 10px;
+
+$placeholder-opacity-max: .2;
+$placeholder-opacity-min: .1;
+
+$modal-content-border-color: none;
+$modal-content-border-radius: 10px;
+
+.input-group-text {
+    color: $color-light-grey !important;
+}
