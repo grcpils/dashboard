@@ -14,19 +14,13 @@ router.get('/about.json', (req, res) => {
         },
         server: {
             current_time: curr_timestamp,
-            services: {
+            services: [{
                 name: "weather",
-                widgets: [
-                    {
+                widgets: [{
                         name: "city_temperature",
                         description: "Display temperature of a city",
-                        params: [
-                            {
+                        params: [{
                                 name: "city",
-                                type: "string"
-                            },
-                            {
-                                name: "state",
                                 type: "string"
                             },
                             {
@@ -36,30 +30,39 @@ router.get('/about.json', (req, res) => {
                         ]
                     }
                 ],
+            }, {
+                name: "rss",
+                widgets: [{
+                        name: "rss",
+                        description: "Display data from rss flux",
+                        params: [{
+                                name: "url",
+                                type: "string"
+                            }
+                        ]
+                    }
+                ],
+            }, {
                 name: "steam",
-                widgets: [
-                    {
+                widgets: [{
                         name: "friends",
                         description: "Display the list of friends of a user",
-                        params: [
-                            {
+                        params: [{
                                 name: "steamID",
                                 type: Number
                             }
                         ]
-                    },
-                    {
+                    }, {
                         name: "game",
                         description: "Display the number of players on a specific game",
-                        params: [
-                            {
+                        params: [{
                                 name: "gameID",
                                 type: Number
                             }
                         ]
                     }
                 ]
-            }
+            }]
         }
     });
 });
