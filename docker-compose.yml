@@ -1,10 +1,17 @@
 version: "3.9"
 
 services:
-  server_prod:
+  front:
     restart: unless-stopped
     build: ./app
     ports:
-      - "8080:3000"
+      - "3000:3000"
     env_file:
       - .env
+  back:
+    restart: unless-stopped
+    build: ./back
+    ports:
+      - "8080:8080"
+    env_file:
+      - .back.env
